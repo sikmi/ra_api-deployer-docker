@@ -24,6 +24,12 @@ RUN set -ex \
     && apt-get purge -y nodejs \
     && rm -rf /var/lib/apt/lists/*
 
+# yarn install
+# 参考: https://yarnpkg.com/lang/ja/docs/install/#debian-stable
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+RUN apt-get update && apt-get install -y yarn --no-install-recommends
+
 RUN set -ex \
     && apt-get update  \
     && apt-get install -y \
