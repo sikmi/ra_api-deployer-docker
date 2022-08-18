@@ -1,14 +1,14 @@
 FROM sikmi/awseb-deployer-docker
 
 # ruby install
-RUN curl -O http://ftp.ruby-lang.org/pub/ruby/2.5/ruby-2.5.1.tar.gz && \
-    tar -zxvf ruby-2.5.1.tar.gz && \
-    cd ruby-2.5.1 && \
+RUN curl -O http://ftp.ruby-lang.org/pub/ruby/2.7/ruby-2.7.5.tar.gz && \
+    tar -zxvf ruby-2.7.5.tar.gz && \
+    cd ruby-2.7.5 && \
     ./configure --disable-install-doc && \
     make && \
     make install && \
     cd .. && \
-    rm -r ruby-2.5.1 ruby-2.5.1.tar.gz
+    rm -r ruby-2.7.5 ruby-2.7.5.tar.gz
 
 RUN gem install bundler
 
